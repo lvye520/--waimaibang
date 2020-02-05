@@ -1,17 +1,6 @@
 <template>
    <section class="msite">
         <!--首页头部-->
-        <!-- <header class="msite_header">
-          <span class="header_search">
-            <i class="iconfont icon-sousuo"></i>
-          </span>
-          <span class="header_title">
-            <span class="header_title_text ellipsis">昌平区北七家宏福科技园(337省道北)</span>
-          </span>
-          <span class="header_login">
-            <span class="header_login_text">登录|注册</span>
-          </span>
-        </header> -->
         <HeaderTop title="昌平区北七家宏福科技园(337省道北)">
           <span  class="header_search" slot="left">
             <i class="iconfont icon-sousuo"></i>
@@ -33,6 +22,8 @@
            </nav>
          </div>
        </div>
+       <!-- list组件 -->
+       <ShopList></ShopList>
       </section>
 </template>
 <style lang="stylus" scoped>
@@ -63,6 +54,8 @@
 <script>
 // 引入组件
 import HeaderTop from '../../components/HeaderTop'
+import ShopList from '../../components/ShopList/ShopList'
+
 export default {
  data() {
    return {
@@ -83,7 +76,8 @@ export default {
  },
 //  注册组件
 components : {
-  HeaderTop
+  HeaderTop,
+  ShopList
 }
 
 }

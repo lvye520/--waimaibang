@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="footer-guide">
+    <div class="footer-guide" v-show="$route.meta.show">
       <div class="msite" :class="{on:'/msite' === $route.path}" @click="goTo('/msite')">
         <span>
           <i class="iconfont icon-waimai"></i>

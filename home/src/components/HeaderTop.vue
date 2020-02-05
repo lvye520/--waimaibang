@@ -15,9 +15,25 @@
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: space-around;
+    // justify-content: space-around;
     color: #ffffff;
+    .header_title{
+        margin-left: 20px;
+        overflow:hidden;//隐藏文字
+        text-overflow:ellipsis;//显示 ...
+        white-space:nowrap;//不换行
+        width: 260px;
+        text-align: center;
+
+    }
+    .header_login{
+        position: absolute;
+        right: 0;
+
+    }
 }
 </style>
 <script>
