@@ -14,11 +14,24 @@ if(process.env.NODE_ENV === 'production') {
 }else {
     // 开发环境
     module.exports = {
-        // 跨越请求代理
-        // proxy : {
-        //     'data/home' : {
-        //         target : 'http://localhost:3000'
-        //     }
-        // }
+        // 跨域请求代理
+        devServer: {
+            // 代理
+            proxy: {
+                '/data/index_category': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+                '/data/position': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+                '/data/shops': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+
+            }
+        }
     }
 }

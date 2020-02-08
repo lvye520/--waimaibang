@@ -6,7 +6,8 @@
     </div>
     <div class="shop_container">
       <ul class="shop_list">
-        <li class="shop_li border-1px">
+        <!-- 正常后面要加上商家特殊的标识 -->
+        <li class="shop_li border-1px" @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
               <img class="shop_img" src="./images/shop/1.jpg" />
@@ -46,7 +47,7 @@
             </div>
           </a>
         </li>
-        <li class="shop_li border-1px">
+        <li class="shop_li border-1px"  @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
               <img class="shop_img" src="./images/shop/2.jpg" />
@@ -86,7 +87,7 @@
             </div>
           </a>
         </li>
-        <li class="shop_li border-1px">
+        <li class="shop_li border-1px"  @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
               <img class="shop_img" src="./images/shop/3.jpg" />
@@ -126,7 +127,7 @@
             </div>
           </a>
         </li>
-        <li class="shop_li border-1px">
+        <li class="shop_li border-1px"  @click="$router.push('/shop')">
           <a>
             <div class="shop_left">
               <img class="shop_img" src="./images/shop/4.jpg" />
@@ -170,6 +171,16 @@
     </div>
   </div>
 </template>
+<script>
+// 引入辅助函数
+import {mapState} from 'vuex'
+export default {
+  computed : {
+    // 从store中获取数据
+    ...mapState(['shops'])
+  }
+}
+</script>
 <style lang="stylus" scoped>
 // 引入公共样式
  @import "../../common/stylus/mixins.styl"
