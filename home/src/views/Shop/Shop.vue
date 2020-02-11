@@ -3,8 +3,8 @@
     <ShopHeader></ShopHeader>
     <ul class="tab">
       <router-link to='/shop/goods' tag='li' :class="{tarColor:'/shop/goods' === $route.path}">点餐</router-link>
-      <router-link to='/shop/info' tag='li' :class="{tarColor:'/shop/info' === $route.path}">评价</router-link>
-      <router-link to='/shop/ratings' tag='li' :class="{tarColor:'/shop/ratings' === $route.path}">商家</router-link>
+      <router-link to='/shop/ratings' tag='li' :class="{tarColor:'/shop/ratings' === $route.path}">评价</router-link>
+      <router-link to='/shop/info' tag='li' :class="{tarColor:'/shop/info' === $route.path}">商家</router-link>
     </ul>
     <router-view></router-view>
   </div>

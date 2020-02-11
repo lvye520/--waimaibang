@@ -84,13 +84,12 @@ export default {
     HeaderTop,
     ShopList
   },
-  computed : {
-    ...mapState(['address','categorys'])
+  computed: {
+    ...mapState(["address", "categorys"])
   },
   mounted() {
-    this.$store.dispatch('getCategorys')
+    this.$store.dispatch("getCategorys");
     // this.$store.dispatch('getShops')
   }
-  
 };
 </script>

@@ -81,8 +81,8 @@
             </li>
           </ul>
         </div>
-        <div class="activity-sheet-close"  @click="togglePerfer">
-          <span class="iconfont icon-cha"></span>
+        <div class="activity-sheet-close">
+          <span class="iconfont icon-cha" @click="togglePerfer"></span>
         </div>
         <div class="activity-sheet-cover"></div>
       </div>
@@ -312,7 +312,7 @@ export default {
     }
   }
   .activity-sheet {
-    position: relative;
+    // position: relative;
     // 设置隐藏状态
     &.fade-leave-to,
     &.fade-enter{
@@ -367,19 +367,22 @@ export default {
       }
     }
     .activity-sheet-close {
-      position: absolute;
-      right: 10px;
-      top: 245px;
-      z-index: 1000;
+      position: fixed;
+      right: 165px;
+      bottom: 260px;
+      z-index: 10000;
+      width: 40px;
+      height: 40px;
       .icon-cha {
         font-size: 30px;
+        color: red
       }
     }
     .activity-sheet-cover {
       position: fixed;
       left: 0;
       top: 0;
-      z-index: 1;
+      z-index: 10;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);

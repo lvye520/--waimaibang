@@ -29,6 +29,7 @@ import FooterGuide from "./components/FooterGuide";
 import { mapActions } from "vuex";
 // 引入mock
 import './mock/mockServer'
+
 // 引入api
 // import {reqFoodCategorys} from './api'
 export default {

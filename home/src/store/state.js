@@ -6,5 +6,6 @@ export default {
     shops : [], //商家数组
     goods : [], //商品列表
     ratings : [], //商家评论列表
-    info : {} //商家信息
+    info : {} ,//商家信息
+    cartFoods:[]  //购物车中食物的列表
 }

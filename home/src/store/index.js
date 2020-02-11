@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex,{Store} from 'vuex'
 // 引入各个js文件
 import actions from './actions';
 import getters from './getters';
@@ -9,10 +9,13 @@ import mutations from './mutations';
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+export default new Store({
   // 配置
   actions,
   getters,
   state,
   mutations
 })
+
+
+

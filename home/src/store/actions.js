@@ -5,7 +5,10 @@ import {
     RECEIVE_SHOPS,
     RECEIVEG_GOODS,
     RECEIVE_RATINGS,
-    RECEIVE_INFO
+    RECEIVE_INFO,
+    ADD_COUNT,
+    DELETE_COUNT,
+    CLEAR_ACRT
 } from './mutation-types'
 // 引入接口函数 发送请求
 import {
@@ -65,12 +68,29 @@ export default {
             commit(RECEIVE_RATINGS,{ratings})
         }
     },
-    async getShopGoods({commit}) {
+    async getShopGoods({commit},callback) {
         const result = await reqShopGoods();
         if(result.code === 0) {
-            const info = result.data
-            commit(RECEIVEG_GOODS,{info})
+            const goods = result.data
+            // console.log()
+            commit(RECEIVEG_GOODS,{goods})
+            // 数据更新告诉组件
+            callback && callback();
         }
+    },
+    async updateFoodCount({commit},{isAdd,food}) {
+        if(isAdd) {
+            // 执行加法操作
+            commit(ADD_COUNT,{food})
+        }else{
+            // 执行减法操作
+            commit(DELETE_COUNT,{food})
+        }
+
+    },
+    // 清空购物车
+    async clearCart({commit}) {
+        commit(CLEAR_ACRT)
     }
       
 }
