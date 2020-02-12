@@ -214,7 +214,7 @@
 </style>
 <script>
 // 引入mapState
-import { mapState, mapGetters } from "vuex";
+import { mapState } from "vuex";
 // 引入cartcontrol
 import Cartcontrol from "../../components/CartControl/CartControl";
 //引入better-scoll库
@@ -274,67 +274,109 @@ export default {
       }
     },
     // 显示以隐藏有两个条件 toTalCount为0直接隐藏，当isShow为false隐藏
-    listShow() {
-      if (this.toTalCount === 0) {
-        // 当toTalCount为0时 要改变isShow的值
-        this.isShow = false;
-        // 当toTalCount为0直接隐藏
-        return false;
-      }
-      //   if (this.isShow) {
-      //     //   当列表显示的时候创建scroll对象
-      //     this.$nextTick(() => {
-      //       new BScroll(".list-content", {
-      //         click: true
-      //       });
-      //     });
-      //   }
-
-      if (this.isShow) {
-        this.$nextTick(() => {
-          // 实现BScroll的实例是一个单例  不然每次切换的时候就会创建一个scroll实例 影响购物车的加减
-          //   创建之前判断scroll是否存在
-          if (!this.scroll) {
-            //   不存在，保存起来
-            this.scroll = new BScroll(".list-content", {
-              click: true
-            });
-          } else {
-            //   解决小bug
-            this.scroll.refresh(); // 让滚动条刷新一下: 重新统计内容的高度
+        listShow() {
+          if (this.toTalCount === 0) {
+            // 当toTalCount为0时 要改变isShow的值
+            this.isShow = false;
+            // 当toTalCount为0直接隐藏
+            return false;
           }
-        });
-      }
-      // 走到这说明totalCount不为o
-      return this.isShow;
-    }
-  },
+          //   if (this.isShow) {
+          //     //   当列表显示的时候创建scroll对象
+          //     this.$nextTick(() => {
+          //       new BScroll(".list-content", {
+          //         click: true
+          //       });
+          //     });
+          //   }
+
+          if (this.isShow) {
+            this.$nextTick(() => {
+              // 实现BScroll的实例是一个单例  不然每次切换的时候就会创建一个scroll实例 影响购物车的加减
+              //   创建之前判断scroll是否存在
+              if (!this.scroll) {
+                //   不存在，保存起来
+                this.scroll = new BScroll(".list-content", {
+                  click: true
+                });
+              } else {
+                //   解决小bug
+                this.scroll.refresh(); // 让滚动条刷新一下: 重新统计内容的高度
+              }
+            });
+          }
+          // 走到这说明totalCount不为o
+          return this.isShow;
+        }
+      },
+//     listShow: {
+//       get() {
+//         if (this.toTalCount === 0) {
+//           // 当toTalCount为0时 要改变isShow的值
+//           this.isShow = false;
+//           // 当toTalCount为0直接隐藏
+//           return false;
+//         }
+//       },
+
+//       //   if (this.isShow) {
+//       //     //   当列表显示的时候创建scroll对象
+//       //     this.$nextTick(() => {
+//       //       new BScroll(".list-content", {
+//       //         click: true
+//       //       });
+//       //     });
+//       //   }
+//       set() {
+//         if (this.isShow) {
+//           this.$nextTick(() => {
+//             // 实现BScroll的实例是一个单例  不然每次切换的时候就会创建一个scroll实例 影响购物车的加减
+//             //   创建之前判断scroll是否存在
+//             if (!this.scroll) {
+//               //   不存在，保存起来
+//               this.scroll = new BScroll(".list-content", {
+//                 click: true
+//               });
+//             } else {
+//               //   解决小bug
+//               this.scroll.refresh(); // 让滚动条刷新一下: 重新统计内容的高度
+//             }
+//           });
+//         }
+//         // 走到这说明totalCount不为o
+//         return this.isShow;
+//       }
+//     }
+//   },
   methods: {
     toggle() {
       //   只有当总数量大于零才切换
       if (this.toTalCount > 0) {
         this.isShow = !this.isShow;
       }
-	},
-	// 支付按钮
+    },
+    // 支付按钮
     settle() {
-		let {toTolPrice} = this
-		let {deliveryPrice} = this.info
+      let { toTolPrice } = this;
+      let { deliveryPrice } = this.info;
       if (this.payText === "结算") {
         MessageBox({
           title: "支付",
           message: `您需要支付${toTolPrice + deliveryPrice}元`,
           showCancelButton: true
-		});
+        });
       }
       console.log(323, this.payText);
-	},
-	// 清空购物车
-	clearCart() {
-		 MessageBox.confirm('确定清空购物车吗?').then(action => {
-          this.$store.dispatch('clearCart')
-        }, () => {});
-	}
+    },
+    // 清空购物车
+    clearCart() {
+      MessageBox.confirm("确定清空购物车吗?").then(
+        () => {
+          this.$store.dispatch("clearCart");
+        },
+        () => {}
+      );
+    }
   },
   created() {
     // console.log(this.$store.state.info.deliveryPrice)

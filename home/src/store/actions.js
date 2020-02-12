@@ -61,11 +61,13 @@ export default {
             commit(RECEIVE_INFO,{info})
         }
     },
-    async getShopRatings({commit}) {
+    async getShopRatings({commit},callback) {
         const result = await reqShopRatings();
         if(result.code === 0) {
             const ratings = result.data
             commit(RECEIVE_RATINGS,{ratings})
+            // 数据更新告诉组件
+            callback && callback()
         }
     },
     async getShopGoods({commit},callback) {
