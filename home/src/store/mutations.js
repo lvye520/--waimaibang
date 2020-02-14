@@ -10,7 +10,10 @@ import {
     RECEIVE_INFO,
     ADD_COUNT,
     DELETE_COUNT,
-    CLEAR_ACRT
+    CLEAR_ACRT,
+    RECEIVE_SEARCH,
+    RECEIVE_LOGIN,
+    RESET_USERINFO
 } from './mutation-types'
 export default {
     [RECEIVE_ADDRESS](state, address) {
@@ -25,6 +28,10 @@ export default {
     [RECEIVEG_GOODS](state, { goods }) {
         state.goods = goods
         // Vue.set(state,'goods',goods)
+    },
+    // 搜索商家
+    [RECEIVE_SEARCH](state, { searchShops }) {
+        state.searchShops = searchShops
     },
     [RECEIVE_RATINGS](state, { ratings }) {
         state.ratings = ratings
@@ -54,8 +61,21 @@ export default {
     // 清空购物车
     [CLEAR_ACRT](state) {
         // 让food中的count为0
-       state.cartFoods.forEach(food => food.count=0)
+        state.cartFoods.forEach(food => food.count = 0)
         // 清空cartFoods数组
-       state.cartFoods = []
+        state.cartFoods = []
     },
+    // // 搜索商家
+    // [RECEIVE_SEARCH](state, {searchShops}) {
+    //     state.searchShops = searchShops
+    // }
+
+    // 登录信息
+    [RECEIVE_LOGIN](state, { userinfo }) {
+        state.userinfo = userinfo
+    },
+    //    退出
+    [RESET_USERINFO](state) {
+        state.userinfo = {}
+    }
 }

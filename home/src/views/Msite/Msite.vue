@@ -2,12 +2,22 @@
   <section class="msite">
     <!--首页头部-->
     <HeaderTop :title="address.name">
-      <span class="header_search" slot="left">
+      <router-link class="header_search" slot="left" to="/search">
         <i class="iconfont icon-sousuo"></i>
-      </span>
-      <span class="header_login" slot="right">
+      </router-link>
+      <router-link
+        class="header_login"
+        v-if="!userinfo.id"
+        slot="right"
+        :to="userinfo.id?'/userinfo':'/login'"
+      >
         <span class="header_login_text">登录|注册</span>
-      </span>
+      </router-link>
+      <router-link class="header_login" v-else slot="right" :to="userinfo.id?'/userinfo':'/login'">
+        <span class="header_login_text">
+          <i class="iconfont icon-ren"></i>
+        </span>
+      </router-link>
     </HeaderTop>
     <!--首页导航-->
     <div class="msite-content-wrapper">
@@ -27,6 +37,10 @@
   </section>
 </template>
 <style lang="stylus" scoped>
+.icon-ren{
+	font-size:25px;
+	margin-right : 10px;
+}
 .msite {
   background-color: #f6fff1;
   margin-top: 50px;
@@ -85,7 +99,7 @@ export default {
     ShopList
   },
   computed: {
-    ...mapState(["address", "categorys"])
+    ...mapState(["address", "categorys", "userinfo"])
   },
   mounted() {
     this.$store.dispatch("getCategorys");

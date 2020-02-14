@@ -13,6 +13,7 @@ export default new Router({
     { path: '/order', name: 'order', component: () => import('../views/Order/Order.vue'), meta: { show: true } },
     { path: '/profile', name: 'profile', component: () => import('../views/Profile/Profile.vue'), meta: { show: true } },
     { path: '/login', name: 'login', component: () => import('../views/Login/Login.vue') },
+    {path: '/userinfo', name: 'userinfo', component: () => import('../views/Userinfo/Userinfo.vue') },
     {
       path: '/shop', name: 'shop', component: () => import('../views/Shop/Shop.vue'),
       children: [

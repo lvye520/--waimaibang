@@ -30,6 +30,22 @@ if(process.env.NODE_ENV === 'production') {
                     // 目标地址		http://localhost:3000/data/home
                     target: 'http://localhost:3000',
                 },
+                '/data/search': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+                '/login/pwd': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+                '/login/Sms': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
+                '/data/logout': {
+                    // 目标地址		http://localhost:3000/data/home
+                    target: 'http://localhost:3000',
+                },
 
             }
         }

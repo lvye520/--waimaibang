@@ -34,6 +34,12 @@
         right: 0;
 
     }
+    .header-back{
+        display: inline-block;
+        .icon-xiaoyu{
+            font-size: 20px;
+        }
+    }
 }
 </style>
 <script>

@@ -2,6 +2,9 @@
 export const RECEIVE_ADDRESS = 'receive_address'  //接收地址
 export const RECEIVE_CATEGORY = 'receive_category' // 接收食品分类数组
 export const RECEIVE_SHOPS = 'receive_shops'  //接收商家数组
+export const RECEIVE_SEARCH = 'receive_search'  //接收搜索数组
+export const RECEIVE_LOGIN = 'receive_login'  //接收登录信息
+export const RESET_USERINFO = 'reset_userinfo'  //退出登录
 
 // mocks数据常量
  export const RECEIVEG_GOODS = 'receive_goods' //接收商品数组
